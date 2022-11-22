@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stoc_picking_aux_report_tree" model="ir.ui.view">
+        <field name="name">stock.picking.for.menu.valuation.tree</field>
+        <field name="model">stock.picking</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- <record id="view_reports_amazon_form" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="reports">
+                <header attrs="{'invisible': [('id', '=', False)]}">
+                </header>
+                <sheet>
+                   <group>
+                        <group>
+                            <field name="fields"/>
+                        </group>
+                   </group>
+                </sheet>
+            </form>
+        </field>
+    </record> -->
+    <record id="stoc_picking_aux_report_view" model="ir.actions.act_window">
+        <field name="name">Stock picking aux report</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Transfer Aux Report
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="Report"
+        name="Transfer Report"
+        sequence="6"/>
+
+    <menuitem id="report_submenu"
+        name="Report"
+        parent="Report"
+        action="stoc_picking_aux_report_view"
+        sequence="6"/>
+
+    <!-- <menuitem id="item_submenu"
+        name="item submenu"
+        action="stoc_picking_aux_report_view"
+        parent="submenu"
+        sequence="6"/> -->
+    <!-- <menuitem id="view_reports_amazon_form_menu"
+        name="Form"
+        parent="view_reports_amazon_menu"
+        action="view_reports_amazon_form"
+        sequence="6"/> -->
+</odoo>
